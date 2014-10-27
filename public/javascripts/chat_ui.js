@@ -3,16 +3,18 @@ $(function() {
   var chat = new Chattin.Chat(socket, {});
 
   socket.on("sendMessage", function(data){
-    $("ul").prepend("<li>" + data.text + "</li>");
+    chat.postMessage(data);
   });
 
   socket.on("nicknameChanged", function(data){
     $(".username").html(data.nickname);
+    chat.nickname = data.nickname;
   })
 
   $("button.message-new").on("click", function(event){
     event.preventDefault();
     var msg = $("input.message-new").val();
+    $("input.message-new").val("");
     chat.sendMessage(msg);
   });
 
