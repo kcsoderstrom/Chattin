@@ -11,13 +11,23 @@
     var that = this;
 
     this.socket.on("sendMessage", function(data){
-      $("ul").prepend("<li>" + data.nickname + ": " + data.text + "</li>");
+      var msg = new Ui.Message(data);
+      $("ul").prepend(msg.render().$el);
     });
 
     this.socket.on("nicknameChanged", function(data){
       $(".username").html(data.nickname);
       that.chat.nickname = data.nickname;
-    })
+    });
+
+    this.socket.on("newNickname", function(data){
+      var $li = $(".sidebar li:contains(" + data.oldNickname + ")");
+      $li.html(data.newNickname);
+    });
+
+    this.socket.on("addUser", function(data){
+      $(".sidebar ul").append("<li>" + data.nickname + "</li>");
+    });
 
     $("button.message-new").on("click", function(event){
       event.preventDefault();
@@ -31,6 +41,7 @@
       var nickname = $("input.nickname-change").val();
       that.chat.changeNickname(nickname);
     });
+
   };
 
 })();

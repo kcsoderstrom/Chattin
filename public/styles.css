@@ -1,0 +1,44 @@
+html, body, ul, li, input, button, div, main {
+  background: transparent;
+  font: inherit;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: block;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.time {
+  display: none;
+}
+
+li:hover > .time {
+  display: block;
+  position: absolute;
+  top: -10px;
+  left: 100px;
+}
+
+main {
+  position: absolute;
+  left: 200px;
+}
+
+li.mine {
+  background: blue;
+}
+
+li {
+  position: relative;
+  border-bottom: 1px solid blue;
+}
+
+main {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 300px;
+}
