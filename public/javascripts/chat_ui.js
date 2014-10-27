@@ -12,7 +12,10 @@
 
     this.socket.on("sendMessage", function(data){
       var msg = new Ui.Message(data);
-      $("ul").prepend(msg.render().$el);
+      if(data.author === that.chat.nickname) {
+        msg.setAsMine();
+      }
+      $("ul.dialog").append(msg.render().$el);
     });
 
     this.socket.on("nicknameChanged", function(data){
@@ -26,14 +29,14 @@
     });
 
     this.socket.on("addUser", function(data){
-      $(".sidebar ul").append("<li>" + data.nickname + "</li>");
+      $("ul.people").append("<li>" + data.nickname + "</li>");
     });
 
     $("button.message-new").on("click", function(event){
       event.preventDefault();
       var msg = $("input.message-new").val();
       $("input.message-new").val("");
-      that.chat.sendMessage(msg);
+      that.chat.processInput(msg);
     });
 
     $("button.nickname-change").on("click", function(event){

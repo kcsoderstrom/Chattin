@@ -1,4 +1,4 @@
-html, body, ul, li, input, button, div, main {
+html, body, ul, li, input, button, div, main, footer {
   background: transparent;
   font: inherit;
   border: 0;
@@ -10,35 +10,97 @@ html, body, ul, li, input, button, div, main {
 
 body {
   font-family: sans-serif;
+  height: 100%;
+  width: 100%;
 }
 
-.time {
-  display: none;
+ul.rooms:before {
+  content: "ROOMS";
+  color: #838383;
+  font-weight: bold;
+  font-size: 13px;
 }
 
-li:hover > .time {
-  display: block;
+ul.people:before {
+  content: "PEOPLE";
+  color: #838383;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.sidebar {
+  background-color: #F5F5F5;
   position: absolute;
-  top: -10px;
-  left: 100px;
-}
-
-main {
-  position: absolute;
-  left: 200px;
+  width: 200px;
+  padding: 10px;
+  height: 100%;
+  font-size: 15px;
 }
 
 li.mine {
-  background: blue;
+  background: #E0EAF3;
 }
 
-li {
+ul.dialog > li {
   position: relative;
-  border-bottom: 1px solid blue;
+  border-bottom: 1px solid #F5F5F5;
+  height: 20px;
+  padding-top: 12px;
+  padding-bottom: 10px;
+}
+
+ul.dialog div.author {
+  color: #707070;
+  position: absolute;
+  left: 20px;
+  width: 80px;
+  overflow: hidden;
+  height: 100%;
+}
+
+ul.dialog div.contents {
+  position: absolute;
+  left: 100px;
+  height: 100%;
+}
+
+ul.dialog div.time {
+  position: absolute;
+  right: 20px;
+  color: #A1A1A1;
+  font-size: 12px;
 }
 
 main {
+  position: absolute;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 300px;
+  height: 100%;
+  right: 200px;
+  left: 220px;
+}
+
+input {
+  border: 1px solid #CCC;
+}
+
+footer {
+  border-top: 1px solid #CCC;
+  position: fixed;
+  bottom: 0px;
+  background-color: #E9E9E9;
+  padding: 4px;
+  left: 220px;
+  right: 200px;
+}
+
+input.message-new {
+  border-radius: 5px;
+  height: 25px;
+  background-color: white;
+  width: 90%;
+}
+
+button.message-new {
+  display: hidden;
 }

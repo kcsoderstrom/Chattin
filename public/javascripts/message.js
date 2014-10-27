@@ -8,11 +8,15 @@
     this.$el = options.$el || $("<li>");
   }
 
+  Message.prototype.setAsMine = function () {
+    this.$el.addClass("mine");
+  };
+
   Message.prototype.render = function () {
-    console.log(this.time);
-    var timePiece = '<div class="time">' + this.time + '</div>';
-    var contentPiece = this.author + ": " + this.contents;
-    this.$el.html(timePiece + contentPiece);
+    var time = '<div class="time">' + this.time + '</div>';
+    var author = '<div class="author">' + this.author + '</div>';
+    var contents = '<div class="contents">' + this.contents + "</div>";
+    this.$el.html(time + author + contents);
     return this;
   };
 
