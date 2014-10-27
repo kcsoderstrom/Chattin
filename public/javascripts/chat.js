@@ -14,7 +14,4 @@
     this.socket.emit("nicknameChangeRequest", {nickname: nickname})
   };
 
-  Chat.prototype.postMessage = function(data) {
-    $("ul").prepend("<li>" + data.nickname + ": " + data.text + "</li>");
-  }
 })();
