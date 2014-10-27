@@ -9,4 +9,8 @@
   Chat.prototype.sendMessage = function (msg) {
     this.socket.emit("receiveMessage", {text: msg});
   };
+
+  Chat.prototype.changeNickname = function (nickname) {
+    this.socket.emit("nicknameChangeRequest", {nickname: nickname})
+  };
 })();

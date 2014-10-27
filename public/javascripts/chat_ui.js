@@ -6,10 +6,20 @@ $(function() {
     $("ul").prepend("<li>" + data.text + "</li>");
   });
 
-  $("button").on("click", function(event){
+  socket.on("nicknameChanged", function(data){
+    $(".username").html(data.nickname);
+  })
+
+  $("button.message-new").on("click", function(event){
     event.preventDefault();
-    var msg = $("input").val();
+    var msg = $("input.message-new").val();
     chat.sendMessage(msg);
+  });
+
+  $("button.nickname-change").on("click", function(event){
+    event.preventDefault();
+    var nickname = $("input.nickname-change").val();
+    chat.changeNickname(nickname);
   });
 
 });
