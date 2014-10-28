@@ -39,7 +39,6 @@
       data.users.forEach(function(nickname){
         $("ul.people").append("<li>" + nickname + "</li>");
       });
-      console.log("I am here");
     });
 
     $("button.message-new").on("click", function(event){

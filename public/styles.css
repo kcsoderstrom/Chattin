@@ -8,10 +8,15 @@ html, body, ul, li, input, button, div, main, footer {
   display: block;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: sans-serif;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 ul.rooms:before {
@@ -55,13 +60,11 @@ ul.dialog div.author {
   left: 20px;
   width: 80px;
   overflow: hidden;
-  height: 100%;
 }
 
 ul.dialog div.contents {
   position: absolute;
   left: 100px;
-  height: 100%;
 }
 
 ul.dialog div.time {
@@ -75,14 +78,10 @@ main {
   position: absolute;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 100%;
-  right: 200px;
+  right: 0px;
+  top: 0;
   left: 220px;
-  bottom: 50px;
-}
-
-input {
-  border: 1px solid #CCC;
+  bottom: 30px; /* This shouldn't work. Why does this work?? */
 }
 
 footer {
@@ -92,17 +91,24 @@ footer {
   background-color: #E9E9E9;
   height: 33px;
   left: 220px;
-  right: 200px;
+  right: 0px;
 }
 
-input.message-new {
+form {
+  width: 100%;
+}
+
+footer input {
+  border: 1px solid #CCC;
   position: absolute;
   bottom: 4px;
-  left: 10px;
+  top: 4px;
+  left: 7px;
+  right: 0px;
   border-radius: 5px;
   height: 25px;
   background-color: white;
-  width: 90%;
+  max-width: 100%;
 }
 
 button.message-new {
