@@ -81,7 +81,7 @@ main {
   right: 0px;
   top: 0;
   left: 220px;
-  bottom: 30px; /* This shouldn't work. Why does this work?? */
+  bottom: 30px;
 }
 
 footer {
@@ -92,6 +92,8 @@ footer {
   height: 33px;
   left: 220px;
   right: 0px;
+  box-sizing: border-box;
+  padding: 4px 7px 4px 7px;
 }
 
 form {
@@ -100,15 +102,16 @@ form {
 
 footer input {
   border: 1px solid #CCC;
-  position: absolute;
-  bottom: 4px;
+  /*position: absolute;*/
+/*  bottom: 4px;
   top: 4px;
   left: 7px;
-  right: 0px;
+  right: 0px;*/
+  margin: 0;
   border-radius: 5px;
   height: 25px;
   background-color: white;
-  max-width: 100%;
+  width: 100%;
 }
 
 button.message-new {
